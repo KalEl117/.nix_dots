@@ -4,6 +4,33 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+# --- Git Aliases ---
+
+# Schneller Statuscheck
+alias gs="git status -sb" # Kompakt und übersichtlich
+
+# Alles hinzufügen, committen und direkt pushen mit einem Befehl
+# Nutzung: gcap "Mein commit text"
+gcap() {
+    git add .
+    git commit -m "$1"
+    git push
+}
+
+# Der Klassiker: add und commit in einem Rutsh (ohne automatischen Push)
+# Nutzung: gc "Fix: fehler behoben"
+gc() {
+    git add .
+    git commit -m "$1"
+}
+
+# Standard-Befehle abgekürzt
+alias gp="git push"
+alias gl="git pull"
+alias gd="git diff"
+
+# Schöne, kompakte Log-Ansicht als Baum (perfekt fürs Terminal)
+alias glog="git log --graph --oneline --decorate --all"
 
 alias ls='ls --color=auto'
 alias ll='ls -al'
