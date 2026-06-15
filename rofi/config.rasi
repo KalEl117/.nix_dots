@@ -1,0 +1,29 @@
+@import "catppuccin-mocha"
+
+@theme "catppuccin-default"
+
+configuration {
+    show-icons: true;
+    font: "JetBrainsMono Nerd Font 16";
+    disable-history: true;
+    sort: true;
+    // sorting-method: "name";
+    modi: "drun,run,window";
+    display-drun: "Apps";
+}
+
+window {
+    width: 30%;
+    anchor: center;
+    location: center;
+    border: 2px;
+    padding: 10px;
+  }
+
+listview {
+    line: 10;
+    columns: 1;
+    fixed-height: 0;
+    scrollbar: false;
+    spacing: 5px;
+  }

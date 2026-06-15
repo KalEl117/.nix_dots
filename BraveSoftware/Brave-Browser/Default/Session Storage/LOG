@@ -1,0 +1,4 @@
+2026/06/15-18:48:20.778 5 Reusing MANIFEST /home/zoltan/.config/BraveSoftware/Brave-Browser/Default/Session Storage/MANIFEST-000001
+2026/06/15-18:48:20.782 5 Recovering log #3
+2026/06/15-18:48:20.783 5 (ignoring error) /home/zoltan/.config/BraveSoftware/Brave-Browser/Default/Session Storage/000003.log: dropping 908 bytes; Corruption: missing start of fragmented record(2)
+2026/06/15-18:48:20.787 5 Reusing old log /home/zoltan/.config/BraveSoftware/Brave-Browser/Default/Session Storage/000003.log 
