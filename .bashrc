@@ -4,6 +4,7 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+
 # --- Git Aliases ---
 
 # Schneller Statuscheck
@@ -43,7 +44,25 @@ alias v='nvim'
 alias gitupdate='~/.dotfiles/sync_dotfiles.sh'
 alias ping='ping -c3'
 alias grep='grep --color=auto'
-PS1="\[\e[1;36m\]╭─ \[\e[1;34m\]\w \[\e[0m\]\n\[\e[1;36m\]╰─\[\e[1;32m\]❯ \[\e[0m\]"
+
+# --- Git Prompt Funktion ---
+parse_git_branch() {
+     if git rev-parse --is-inside-work-tree &>/dev/null; then
+          local branch=$(git branch --show-current)
+          local status_sym=""
+          # Prüfen auf ungesicherte Änderungen
+          if ! git diff --quiet 2>/dev/null || ! git diff --cached --quiet 2>/dev/null; then
+               status_sym="*"
+          fi
+          # Gelbe Anzeige mit Klammern: (main*)
+          echo -e " \033[1;33m(${branch}${status_sym})\033[0m"
+     fi
+}
+
+# --- Dein angepasster zweizeiliger Prompt ---
+PS1="\[\e[1;36m\]╭─ \[\e[1;34m\]\w\[\e[0m\]\$(parse_git_branch)\n\[\e[1;36m\]╰─\[\e[1;32m\]❯ \[\e[0m\]"
+
+# PS1="\[\e[1;36m\]╭─ \[\e[1;34m\]\w \[\e[0m\]\n\[\e[1;36m\]╰─\[\e[1;32m\]❯ \[\e[0m\]"
 
 HISTFILE=~/.bash_history
 HISTSIZE=10000
