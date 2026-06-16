@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+# Fehler abfangen: Skript stoppen, wenn ein Befehl fehlschlägt
+set -e
+
+# Pfade definieren (Passe den Quellpfad an, falls dein Ordner anders liegt)
+SOURCE_CONFIG="$HOME/.nix_dots/configuration.nix"
+TARGET_LINK="/etc/nixos/configuration.nix"
+
+# Sicherstellen, dass das Skript als Root ausgeführt wird
+if [ "$EUID" -ne 0 ]; then
+    echo "Bitte starte das Skript mit sudo:"
+    echo "sudo ./nixosinstall"
+    exit 1
+fi
+
+# Überprüfen, ob die Quelldatei überhaupt existiert
+if [ ! -f "$SOURCE_CONFIG" ]; then
+    echo "Fehler: Die Quelldatei $SOURCE_CONFIG wurde nicht gefunden!"
+    exit 1
+fi
+
+echo "Erstelle Symlink für NixOS-Konfiguration..."
+
+# Bestehende Datei oder alten Symlink in /etc/nixos löschen (-f verhindert Fehler, falls sie nicht existiert)
+rm -f "$TARGET_LINK"
+
+# Symlink erstellen
+ln -s "$SOURCE_CONFIG" "$TARGET_LINK"
+
+echo "Erfolgreich! $TARGET_LINK zeigt jetzt auf $SOURCE_CONFIG"
+echo "Du kannst nun 'sudo nixos-rebuild switch' ausführen."
