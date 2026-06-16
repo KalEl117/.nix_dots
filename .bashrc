@@ -44,6 +44,28 @@ alias v='nvim'
 alias gitupdate='~/.dotfiles/sync_dotfiles.sh'
 alias ping='ping -c3'
 alias grep='grep --color=auto'
+# Schneller navigieren
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+# ==========================================
+# Nix-Müllabfuhr (Garbage Collection)
+# ==========================================
+
+# Löscht alle alten Generationen (schafft massig Platz)
+alias nix-gc="sudo nix-collect-garbage -d"
+
+# Optimiert den Nix-Store (sucht nach identischen Dateien und verlinkt sie hart)
+alias nix-optimize="nix-store --optimize"
+
+# Das "Rundum-sorglos-Paket": Löschen UND Optimieren in einem Rutsch
+alias nix-cleanup="sudo nix-collect-garbage -d && nix-store --optimize"
+# ==========================================
+# Information & Helferlein
+# ==========================================
+
+# Listet alle System-Generationen auf (wichtig für Rollbacks)
+alias nix-gens="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system"
 
 # --- Git Prompt Funktion ---
 parse_git_branch() {
@@ -64,9 +86,14 @@ PS1="\[\e[1;36m\]╭─ \[\e[1;34m\]\w\[\e[0m\]\$(parse_git_branch)\n\[\e[1;36m\
 
 # PS1="\[\e[1;36m\]╭─ \[\e[1;34m\]\w \[\e[0m\]\n\[\e[1;36m\]╰─\[\e[1;32m\]❯ \[\e[0m\]"
 
+HISTCONTROL=ignoreboth:erasedups
+
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
 HISTFILE=~/.bash_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
 
 export PROMPT_COMMAND='history -a; history -r'
 

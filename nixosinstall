@@ -1,32 +1,45 @@
 #!/usr/bin/env bash
 
-# Fehler abfangen: Skript stoppen, wenn ein Befehl fehlschlägt
+# Fehler abfangen
 set -e
 
-# Pfade definieren (Passe den Quellpfad an, falls dein Ordner anders liegt)
-SOURCE_CONFIG="$HOME/.nix_dots/configuration.nix"
-TARGET_LINK="/etc/nixos/configuration.nix"
+# Pfade für die Live-Umgebung (Zielt auf die gemountete Festplatte)
+SOURCE_CONFIG="$(pwd)/configuration.nix"
+TARGET_DIR="/mnt/etc/nixos"
+TARGET_LINK="$TARGET_DIR/configuration.nix"
 
-# Sicherstellen, dass das Skript als Root ausgeführt wird
+# Sicherstellen, dass das Skript als Root (oder mit sudo) ausgeführt wird
 if [ "$EUID" -ne 0 ]; then
     echo "Bitte starte das Skript mit sudo:"
     echo "sudo ./nixosinstall"
     exit 1
 fi
 
-# Überprüfen, ob die Quelldatei überhaupt existiert
+# Prüfen, ob das Skript im selben Ordner wie die configuration.nix liegt
 if [ ! -f "$SOURCE_CONFIG" ]; then
-    echo "Fehler: Die Quelldatei $SOURCE_CONFIG wurde nicht gefunden!"
-    exit 1
+    # Fallback: Falls es im .nix_dots Ordner im aktuellen Verzeichnis liegt
+    if [ -f "$(pwd)/.nix_dots/configuration.nix" ]; then
+        SOURCE_CONFIG="$(pwd)/.nix_dots/configuration.nix"
+    else
+        echo "Fehler: configuration.nix wurde weder hier noch in .nix_dots gefunden!"
+        echo "Bitte starte das Skript aus deinem geklonten Repository-Ordner."
+        exit 1
+    fi
 fi
 
-echo "Erstelle Symlink für NixOS-Konfiguration..."
+# Prüfen, ob das Zielverzeichnis auf der Festplatte existiert (falls noch kein nixos-generate-config lief)
+if [ ! -d "$TARGET_DIR" ]; then
+    echo "Erstelle Verzeichnis $TARGET_DIR..."
+    mkdir -p "$TARGET_DIR"
+fi
 
-# Bestehende Datei oder alten Symlink in /etc/nixos löschen (-f verhindert Fehler, falls sie nicht existiert)
+echo "Erstelle Symlink für NixOS-Installation..."
+
+# Bestehende auto-generierte Datei auf der Festplatte löschen
 rm -f "$TARGET_LINK"
 
 # Symlink erstellen
 ln -s "$SOURCE_CONFIG" "$TARGET_LINK"
 
 echo "Erfolgreich! $TARGET_LINK zeigt jetzt auf $SOURCE_CONFIG"
-echo "Du kannst nun 'sudo nixos-rebuild switch' ausführen."
+echo "Du kannst jetzt mit 'sudo nixos-install' fortfahren."
