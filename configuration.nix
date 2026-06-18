@@ -170,6 +170,7 @@ systemd.user.services.mako = {
   fonts.fontDir.enable = true;
 
   fonts.packages = with pkgs; [
+    nerd-fonts.iosevka
     nerd-fonts.caskaydia-mono
     nerd-fonts.jetbrains-mono
     noto-fonts
