@@ -17,9 +17,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "nixos"; # Define your hostname.
-  
-  services.displayManager.ly.enable = true;
-  
+
   programs.hyprland.enable = true;
 
   # Configure network connections interactively with nmcli or nmtui.
