@@ -35,7 +35,7 @@
         "format-icons": {
             "headphone": "",
             "hands-free": "",
-            "headset": "",
+            "headset": "󰋎",
             "phone": "",
             "portable": "",
             "car": "",
@@ -58,7 +58,7 @@
         "on-click": "kitty -e btop"
     },
     "memory": {
-        "format": "  {}%",
+        "format": " {}%",
 	"tooltip": true
     },
     "temperature": {
@@ -68,11 +68,11 @@
         "format-critical": " {temperatureC}",
         "format": " {temperatureC}°C"
     },
-    "hyprland/language": {
-       "format": "  {}",
-       "format-en": "EN",
-       "format-ru": "RU"
-    },
+    // "hyprland/language": {
+    //    "format": "  {}",
+    //    "format-en": "EN",
+    //    "format-ru": "RU"
+    // },
     "battery": {
         "states": {
             "warning": 30,
