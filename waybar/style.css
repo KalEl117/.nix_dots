@@ -1,6 +1,6 @@
 * {
     /* `otf-font-awesome` and SpaceMono Nerd Font are required to be installed for icons */
-    font-family: "CaskaydiaMono Nerd Font", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Iosevka Nerd Font", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 15px;
     transition: background-color .3s ease-out;
 }
@@ -46,7 +46,7 @@ window#waybar {
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
-#language,
+/* #language, */
 #mpd {
     padding: 0 10px;
     border-radius: 15px;
@@ -68,7 +68,7 @@ window#waybar {
 #idle_inhibitor:hover,
 #scratchpad:hover,
 #power-profiles-daemon:hover,
-#language:hover,
+/* #language:hover, */
 #mpd:hover {
     background: rgba(26, 27, 38, 0.9);
 }

@@ -20,7 +20,7 @@
         "cpu",
         "memory",
         "temperature",
-        "hyprland/language",
+        // "hyprland/language",
         "battery",
         "battery#bat2",
         "clock"
