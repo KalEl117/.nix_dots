@@ -35119,6 +35119,10 @@ cinehd.app##.dark\:bg-black.pt-20.bg-white.w-full.z-10.relative > .lg\:px-8.md\:
 ||meimei-movie.com^$all
 ||clovermovies.com^$all
 
+! https://github.com/uBlockOrigin/uAssets/issues/33385
+openlua.cloud##+js(set, HTMLScriptElement.prototype.onerror, undefined)
+@@||openlua.cloud^$ghide
+
 ! SECTION: Popular revolving adservers
 
 ! Lockdown
@@ -53055,11 +53059,11 @@ akirabox.com,akirabox.to,bowfile.com,buzzheavier.com,bzzhr.co,bzzhr.to,datavault
 /^https:\/\/\d+\.cfd\/[a-z]{3}tag[a-z]{3}\/v\d\/[a-zA-Z0-9]+:C\d\.js\b/$script,3p,match-case,to=cfd
 
 [Adblock Plus 2.0]
-! Version: 202606201831
+! Version: 202606201904
 ! Title: EasyList
-! Last modified: 20 Jun 2026 18:31 UTC
+! Last modified: 20 Jun 2026 19:04 UTC
 ! Expires: 4 days (update frequency)
-! Commit: 30eb9647f4a2c7c654054b29613ceeb7d6ef7227
+! Commit: dcef9a9176d9ed399f2896b79f586ef63ad64083
 ! *** easylist:template_header.txt ***
 ! 
 ! Please report any unblocked adverts or problems
@@ -78709,6 +78713,7 @@ browsershots.org#@#.advert_area
 ||dioboldualistpenile.qpon^
 ||dioboljizzen.cyou^
 ||diobolsuseable.cfd^
+||diocoelstentonsurer.qpon^
 ||dioptralbw.shop^
 ||diorismkeltswryest.cyou^
 ||dioxythort.cfd^
@@ -79484,6 +79489,7 @@ browsershots.org#@#.advert_area
 ||dsajrx.com^
 ||dsamfe.com^
 ||dsapdf.com^
+||dsaxgy.com^
 ||dsb68d.com^
 ||dsbcks.com^
 ||dsbdyr.com^
@@ -94574,6 +94580,7 @@ browsershots.org#@#.advert_area
 ||niimtlaqdakoma.com^
 ||niizcmfjrykzm.space^
 ||nijanghwya.com^
+||nijesgmpfpr.com^
 ||nijfopycwmazb.site^
 ||nijlqrhkarnbq.online^
 ||nijpglvmuzmkl.space^
@@ -113406,6 +113413,7 @@ browsershots.org#@#.advert_area
 ||yqgyfmjmtnace.online^
 ||yqi71w58zyi9hwk3yb6k5.cfd^
 ||yqjsyabpzegzd.space^
+||yqjxsbojdcurx.website^
 ||yqkyaxdt.net^
 ||yqleyafhq.com^
 ||yqmbvxjkhateu.com^
@@ -113793,6 +113801,7 @@ browsershots.org#@#.advert_area
 ||zdkcbujzihbhd.website^
 ||zdmxehlpvvtta.site^
 ||zdqynwnojttwt.space^
+||zduskykoxzasu.site^
 ||zduwgpvfgvhqm.space^
 ||zdvtuadwafljw.global^
 ||zdwwmfbqymqui.xyz^
