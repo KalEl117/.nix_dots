@@ -150,8 +150,38 @@ systemd.user.services.mako = {
      nwg-look
      tldr
      arc-theme
+     (catppuccin-gtk.override {
+      accents = [ "mauve" ]; # Wähle deine Akzentfarbe (z.B. mauve, blue, pink, etc.)
+      variant = "mocha";     # Wähle deine Variante (latte, frappe, macchiato, mocha)
+      tweaks = [ "rimless" ]; # Optional: Anpassungen wie "rimless" oder "black"
+    })
+    
+    # Optional aber empfohlen: Ein passendes Icon-Theme (z.B. Papirus im Catppuccin-Look)
+    (catppuccin-papirus-folders.override {
+      flavor = "mocha";
+      accent = "mauve";
+    })
+    
+    # gsettings Tool (wichtig, damit Hyprland das Theme an GTK3/4 Apps übergeben kann)
+    glib.bin
+    gnome-settings-daemon
    ];
-  
+ # 2. GTK-Settings systemweit erzwingen
+  # Das sorgt dafür, dass dconf und gsettings-Pfade für alle User bereitstehen
+  programs.dconf.enable = true;
+
+  # Standard-Themes für GTK2 und GTK3 festlegen
+  environment.etc."gtk-3.0/settings.ini".text = ''
+    [Settings]
+    gtk-theme-name = catppuccin-mocha-mauve-standard+rimless
+    gtk-icon-theme-name = Catppuccin-Mocha-Mauve
+    gtk-application-prefer-dark-theme = 1
+  '';
+
+  environment.etc."gtk-2.0/gtkrc".text = ''
+    gtk-theme-name = "catppuccin-mocha-mauve-standard+rimless"
+    gtk-icon-theme-name = "Catppuccin-Mocha-Mauve"
+  ''; 
   qt = {
     enable = true;
     platformTheme = "gnome";
@@ -177,6 +207,9 @@ systemd.user.services.mako = {
     noto-fonts-monochrome-emoji
     noto-fonts-emoji-blob-bin
   ];
+  
+
+
   console = {
     enable = true;
     earlySetup = true; 
