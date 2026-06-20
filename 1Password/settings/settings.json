@@ -3,7 +3,9 @@
   "browsers.extension.enabled": true,
   "security.autolock.minutes": 60,
   "security.authenticatedUnlock.enabled": true,
+  "app.theme": "system",
   "authTags": {
+    "app.theme": "IWpRftFhJsdXp7fS/HY7Zoc6JggVuZ4Cnl4jmm3/XXo",
     "browsers.extension.enabled": "44maq9Tl60O7uMZs0JndHcdQLYmMv26ohY9JX7UtfYQ",
     "security.authenticatedUnlock.enabled": "1dxJK4vi2MDUFMoUSe37wcti9tNX1RnyQ0tHAkBy6P4",
     "security.autolock.minutes": "Rzq31MmoizOuZFNcGNQNcTaEzsFHy/dq+aL5U99pNVY"
