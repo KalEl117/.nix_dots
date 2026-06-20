@@ -177,6 +177,42 @@ systemd.user.services.mako = {
     noto-fonts-monochrome-emoji
     noto-fonts-emoji-blob-bin
   ];
+  console = {
+    enable = true;
+    earlySetup = true; 
+    font = "ter-powerline-v24b"; # Scharfe Bitmap-Schrift, ideal für 1080p/1440p
+    packages = with pkgs; [
+      terminus_font
+      powerline-fonts
+    ];
+  };
+  services.getty.greetingLine = ''
+\e[1;32m
+NNNNNNNN        NNNNNNNN  iiii                           OOOOOOOOO        SSSSSSSSSSSSSSS 
+N:::::::N       N::::::N i::::i                        OO:::::::::OO    SS:::::::::::::::S
+N::::::::N      N::::::N  iiii                       OO:::::::::::::OO S:::::SSSSSS::::::S
+N:::::::::N     N::::::N                            O:::::::OOO:::::::OS:::::S     SSSSSSS
+N::::::::::N    N::::::Niiiiiii xxxxxxx      xxxxxxxO::::::O   O::::::OS:::::S            
+N:::::::::::N   N::::::Ni:::::i  x:::::x    x:::::x O:::::O     O:::::OS:::::S            
+N:::::::N::::N  N::::::N i::::i   x:::::x  x:::::x  O:::::O     O:::::O S::::SSSS         
+N::::::N N::::N N::::::N i::::i    x:::::xx:::::x   O:::::O     O:::::O  SS::::::SSSSS    
+N::::::N  N::::N:::::::N i::::i     x::::::::::x    O:::::O     O:::::O    SSS::::::::SS  
+N::::::N   N:::::::::::N i::::i      x::::::::x     O:::::O     O:::::O       SSSSSS::::S 
+N::::::N    N::::::::::N i::::i      x::::::::x     O:::::O     O:::::O            S:::::S
+N::::::N     N:::::::::N i::::i     x::::::::::x    O::::::O   O::::::O            S:::::S
+N::::::N      N::::::::Ni::::::i   x:::::xx:::::x   O:::::::OOO:::::::OSSSSSSS     S:::::S
+N::::::N       N:::::::Ni::::::i  x:::::x  x:::::x   OO:::::::::::::OO S::::::SSSSSS:::::S
+N::::::N        N::::::Ni::::::i x:::::x    x:::::x    OO:::::::::OO   S:::::::::::::::SS 
+NNNNNNNN         NNNNNNNiiiiiiiixxxxxxx      xxxxxxx     OOOOOOOOO      SSSSSSSSSSSSSSS   
+\e[0m
+Welcome to \e[1;34mNixOS\e[0m (\n) - Running on \l
+  '';
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
