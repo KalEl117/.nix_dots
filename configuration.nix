@@ -10,9 +10,33 @@
       /etc/nixos/hardware-configuration.nix
     ];
 
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = false;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.limine = {
+  enable = true;
+  resolution = "2560x1440";
+  maxGenerations = 8;
+  style = {
+    interface = {
+      resolution = "2560x1440";
+      branding = "NixOS";
+      helpHidden = true; 
+    };
 
+    graphicalTerminal = {
+      font.scale = "1x1";
+      margin = 0; 
+    };
+  };
+  extraConfig = ''
+    term_width: 1000
+    term_height: 500
+    term_margin_left: 780
+    term_margin_right: 780
+    term_margin_top: 470
+    term_margin_bottom: 470
+  '';
+};
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -57,18 +81,6 @@
      enable = true;
      pulse.enable = true;
    };
-systemd.user.services.mako = {
-    description = "Mako notification daemon";
-    wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.mako}/bin/mako";
-      Restart = "on-failure";
-      RestartSec = 2;
-    };
-  };
-
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
