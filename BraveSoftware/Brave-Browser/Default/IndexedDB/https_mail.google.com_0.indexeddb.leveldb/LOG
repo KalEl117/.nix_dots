@@ -1,7 +1,0 @@
-2026/06/20-16:45:04.908 2e8a Reusing MANIFEST /home/zoltan/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_mail.google.com_0.indexeddb.leveldb/MANIFEST-000001
-2026/06/20-16:45:04.909 2e8a Recovering log #3
-2026/06/20-16:45:04.909 2e8a Reusing old log /home/zoltan/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_mail.google.com_0.indexeddb.leveldb/000003.log 
-2026/06/20-16:45:46.264 2e8c Level-0 table #5: started
-2026/06/20-16:45:46.280 2e8c Level-0 table #5: 975268 bytes OK
-2026/06/20-16:45:46.286 2e8c Delete type=0 #3
-2026/06/20-16:45:46.286 2e8c Manual compaction at level-0 from (begin) .. (end); will stop at (end)
