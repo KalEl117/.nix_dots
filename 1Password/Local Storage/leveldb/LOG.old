@@ -1,3 +1,3 @@
-2026/06/15-17:38:40.667 c95 Reusing MANIFEST /home/zoltan/.config/1Password/Local Storage/leveldb/MANIFEST-000001
-2026/06/15-17:38:40.694 c95 Recovering log #3
-2026/06/15-17:38:40.699 c95 Reusing old log /home/zoltan/.config/1Password/Local Storage/leveldb/000003.log 
+2026/06/15-18:54:18.373 c0a Reusing MANIFEST /home/zoltan/.config/1Password/Local Storage/leveldb/MANIFEST-000001
+2026/06/15-18:54:18.407 c0a Recovering log #3
+2026/06/15-18:54:18.407 c0a Reusing old log /home/zoltan/.config/1Password/Local Storage/leveldb/000003.log 

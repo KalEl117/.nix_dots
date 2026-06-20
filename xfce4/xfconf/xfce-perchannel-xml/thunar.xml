@@ -9,4 +9,5 @@
   <property name="misc-symbolic-icons-in-sidepane" type="bool" value="true"/>
   <property name="shortcuts-icon-size" type="string" value="THUNAR_ICON_SIZE_16"/>
   <property name="last-show-hidden" type="bool" value="true"/>
+  <property name="last-renamer-dialog-maximized" type="bool" value="true"/>
 </channel>
