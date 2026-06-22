@@ -150,6 +150,7 @@
      swappy
      wl-clipboard
      git
+     lazygit
      yazi
      brave
      kitty
