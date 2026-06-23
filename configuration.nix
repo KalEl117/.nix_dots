@@ -118,6 +118,12 @@
      EDITOR = "nvim";
      VISUAL = "nvim";
      TERMINAL = "kitty";
+     MANPAGER = "${pkgs.writeShellScript "catppuccin-man" ''
+    export BAT_THEME="Catppuccin Mocha"
+    # Falls du die Theme-Datei lokal in deinen Dots hast (z.B. unter ~/.config/bat/themes/)
+    export BAT_THEMES="$HOME/.config/bat/themes" 
+    exec ${pkgs.bat-extras.batman}/bin/batman "$@"
+  ''}"; 
    };
 
   # List packages installed in system profile.
@@ -125,6 +131,8 @@
    environment.systemPackages = with pkgs; [
      neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      fastfetch
+     bat
+     bat-extras.batman
      gnumake
      gcc
      ripgrep
