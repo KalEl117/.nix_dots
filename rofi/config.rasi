@@ -4,11 +4,11 @@
 
 configuration {
     show-icons: true;
-    font: "JetBrainsMono Nerd Font 14";
+    font: "Iosevka Nerd Font 14";
     disable-history: true;
     sort: true;
     // sorting-method: "name";
-    modi: "drun,run,window";
+    modes: "drun,run,window";
     display-drun: "Apps";
 }
 
@@ -17,13 +17,14 @@ window {
     anchor: center;
     location: center;
     border: 1px;
-    padding: 30px;
+    padding: 20;
   }
 
 listview {
-    line: 10;
+    lines: 10;
     columns: 1;
-    fixed-height: 0;
+    dynamic: true;
+    fixed-height: false;
     scrollbar: false;
-    spacing: 10px;
+    spacing: 5;
   }
