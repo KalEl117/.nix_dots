@@ -63,7 +63,10 @@
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
-
+  services.udev.extraRules = ''
+    #Wecken für alle USB-Eingabegeräte (Tastatur, Mäuse, Trackballs) aktivieren
+    ACTION=="add", SUBSYSTEM=="usb", ATTR{power/wakeup}="enable"
+  '';
 
   
 
@@ -170,6 +173,10 @@
      bluetui
      nwg-look
      tldr
+     mpv
+     imv
+     peazip
+     hfsprogs
      arc-theme
      (catppuccin-gtk.override {
       accents = [ "mauve" ]; # Wähle deine Akzentfarbe (z.B. mauve, blue, pink, etc.)
@@ -214,7 +221,7 @@
     XCURSOR_THEME = "Adwaita";
     XFCE_TERM = "kitty";
   };
-
+  environment.pathsToLink = [ "/share/themes" "/share/icons" ];
 
   fonts.fontDir.enable = true;
 
