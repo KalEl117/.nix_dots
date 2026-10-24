@@ -1,0 +1,9 @@
+-- Source entry point; Home Manager adds session integration on deployment.
+require("lua.monitors")
+require("lua.programs")
+require("lua.autostart")
+require("lua.env")
+require("lua.look")
+require("lua.input")
+require("lua.rules")
+require("lua.keybinds")

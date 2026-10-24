@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Pfad zu deiner Hyprland-Konfiguration
-CONFIG_FILE="$HOME/.config/hypr/hyprland.conf"
+CONFIG_FILE="$HOME/.config/hypr/lua/keybinds.lua"
 
 # Falls du deine Binds in einer separaten Datei hast (z.B. keybinds.conf):
 # CONFIG_FILE="$HOME/.config/hypr/keybinds.conf"

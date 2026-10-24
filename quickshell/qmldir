@@ -1,0 +1,15 @@
+singleton Theme 1.0 Theme.qml
+Bar 1.0 Bar.qml
+Chip 1.0 Chip.qml
+Launcher 1.0 Launcher.qml
+Powermenu 1.0 Powermenu.qml
+Notifications 1.0 Notifications.qml
+ActionButton 1.0 ActionButton.qml
+AudioPopup 1.0 AudioPopup.qml
+AudioBackend 1.0 AudioBackend.qml
+AudioEndpoint 1.0 AudioEndpoint.qml
+AudioChoice 1.0 AudioChoice.qml
+ClockPopup 1.0 ClockPopup.qml
+StyledSlider 1.0 StyledSlider.qml
+PolkitDialog 1.0 PolkitDialog.qml
+MonitorPopup 1.0 MonitorPopup.qml
